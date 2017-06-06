@@ -737,7 +737,7 @@ function! s:BESelectBuffer(...)
       " Was the tab found?
       if tabNbr == 0
         " _bufNbr is not opened in any tabs. Open a new tab with the selected buffer in it.
-        exec "999tab split +buffer" . _bufNbr
+        exec "$tab split +buffer" . _bufNbr
       else
         " The _bufNbr is already opened in tab, go to that tab.
         exec tabNbr . "tabnext"
