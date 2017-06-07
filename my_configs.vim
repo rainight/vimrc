@@ -1,9 +1,13 @@
 if has("win32")
-	set guifont=Hack:h13
+	set guifont=Hack:h12
 	let plug = "~\\vimfiles\\plugged"
 else
 	set guifont=Monaco:h14
 	let plug = "~/.vim/plugged"
+endif
+
+if has("gui_running")
+    set lines=45 columns=150
 endif
 
 set nu
