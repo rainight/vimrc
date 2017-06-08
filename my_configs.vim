@@ -7,7 +7,7 @@ else
 endif
 
 if has("gui_running")
-    set lines=45 columns=150
+    set lines=60 columns=180
 endif
 
 set nu
