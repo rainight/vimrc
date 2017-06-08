@@ -54,6 +54,11 @@ call plug#begin(plug)
 " scala
   Plug 'ensime/ensime-vim'
   Plug 'derekwyatt/vim-scala'
+" Markdown
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'iamcco/mathjax-support-for-mkdp'
+  Plug 'iamcco/markdown-preview.vim'
 " Initialize plugin system
 call plug#end()
 
@@ -124,6 +129,12 @@ let Tlist_Process_File_Always=0
 let Tlist_Ctags_Cmd='ctags' " Location of ctags
 let Tlist_Use_Right_Window = 1
 
+if has('win32')
+    let g:mkdp_path_to_chrome = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+else
+    let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
+endif
+
 nnoremap <silent> <F2> :tabp<CR>
 nnoremap <silent> <F3> :tabn<CR>
 nnoremap <silent> <F4> ggVGy:tabnew<cr>Pgg
@@ -138,10 +149,11 @@ vnoremap <F6> zf
 
 nmap <F7> :SrcExplToggle<CR>
 
-nnoremap <silent> <F8> :%!xxd<CR>
-nnoremap <silent> <S-F8> :%!xxd -r<CR>
+nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
+imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
+nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
+imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
 
-nnoremap <silent> <F9> :A<CR>
 nnoremap <silent> <F10> :TlistToggle<CR>
 
 function AddTitle()
