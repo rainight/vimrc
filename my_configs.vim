@@ -34,7 +34,6 @@ call plug#begin(plug)
   Plug 'altercation/vim-colors-solarized'
 " utils
   Plug 'asins/vimcdoc'
-  Plug 'rhysd/nyaovim-markdown-preview'
   Plug 'kassio/neoterm'
 " navigation
   Plug 'scrooloose/nerdtree'
@@ -135,6 +134,10 @@ else
     let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 endif
 
+let g:vim_markdown_conceal = 0
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
 nnoremap <silent> <F2> :tabp<CR>
 nnoremap <silent> <F3> :tabn<CR>
 nnoremap <silent> <F4> ggVGy:tabnew<cr>Pgg
@@ -149,10 +152,10 @@ vnoremap <F6> zf
 
 nmap <F7> :SrcExplToggle<CR>
 
-nmap <silent> <F8> <Plug>MarkdownPreview        " for normal mode
-imap <silent> <F8> <Plug>MarkdownPreview        " for insert mode
-nmap <silent> <F9> <Plug>StopMarkdownPreview    " for normal mode
-imap <silent> <F9> <Plug>StopMarkdownPreview    " for insert mode
+nmap <silent> <F8> <Plug>MarkdownPreview
+imap <silent> <F8> <Plug>MarkdownPreview
+nmap <silent> <F9> <Plug>StopMarkdownPreview
+imap <silent> <F9> <Plug>StopMarkdownPreview
 
 nnoremap <silent> <F10> :TlistToggle<CR>
 
