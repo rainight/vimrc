@@ -2,12 +2,24 @@ if has("win32")
 	set guifont=Fira_Mono_For_Powerline:h12:W500:cANSI:qDRAFT
 	let plug = "~\\vimfiles\\plugged"
 else
-	set guifont=Monaco:h14
 	let plug = "~/.vim/plugged"
 endif
 
 if has("gui_running")
     set lines=60 columns=180
+    " Gvim
+    if has("gui_gtk2") || has("gui_gtk3")
+        " Linux GUI
+        set guifont=Ubuntu\ Mono\ 13
+    elseif has("gui_win32")
+        " Win32/64 GVim
+	    set guifont=Hack:h12
+    elseif has("gui_macvim")
+        " MacVim
+	    set guifont=Monaco:h14
+    else
+        echo "Unknown GUI system!!!!"
+    endif
 endif
 
 set nu
