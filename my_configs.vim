@@ -1,5 +1,5 @@
 if has("win32")
-	set guifont=Hack:h12
+	set guifont=Fira_Mono_For_Powerline:h12:W500:cANSI:qDRAFT
 	let plug = "~\\vimfiles\\plugged"
 else
 	set guifont=Monaco:h14
@@ -18,7 +18,7 @@ set nu
 " windows: put into ~\vimfiles\autoload\plug.vim
 call plug#begin(plug)
 " completion/coding
-  Plug 'Valloric/YouCompleteMe'
+  Plug 'ycm-core/YouCompleteMe'
   Plug 'jiangmiao/auto-pairs' "自动括号匹配
   Plug 'scrooloose/nerdcommenter'
   Plug 'tpope/vim-surround'
@@ -35,6 +35,7 @@ call plug#begin(plug)
 " utils
   Plug 'asins/vimcdoc'
   Plug 'kassio/neoterm'
+  Plug 'yegappan/mru'
 " navigation
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -43,20 +44,12 @@ call plug#begin(plug)
   Plug 'wesleyche/SrcExpl'
   Plug 'majutsushi/tagbar'
   Plug 'rizzatti/dash.vim'
-" c/c++
-" java
-  Plug 'artur-shaik/vim-javacomplete2'
-" html/css/javascript
   Plug 'mattn/emmet-vim'
   Plug 'leshill/vim-json'
   Plug 'mustache/vim-mustache-handlebars'
-" scala
-  Plug 'ensime/ensime-vim'
-  Plug 'derekwyatt/vim-scala'
 " Markdown
   Plug 'godlygeek/tabular'
   Plug 'plasticboy/vim-markdown'
-  Plug 'iamcco/mathjax-support-for-mkdp'
   Plug 'iamcco/markdown-preview.vim'
 " Initialize plugin system
 call plug#end()
@@ -69,6 +62,9 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
     map <leader>sh :bo sp term://bash\|resize 5<CR>i
 endif
+
+" config javacomplete2
+"autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -130,6 +126,7 @@ let Tlist_Use_Right_Window = 1
 
 if has('win32')
     let g:mkdp_path_to_chrome = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+    let g:gitgutter_git_executable = 'C:\App\scoop\shims\git.exe'
 else
     let g:mkdp_path_to_chrome = "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome"
 endif
